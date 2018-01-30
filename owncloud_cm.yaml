@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: owncloud-configmap
+  labels:
+    app: owncloud
+  
+data:
+  owc_db_type: mysql
+  owc_db_name: owncloud
+  owc_db_root_user: root
+  owc_admin_user: admin
+  # NB: This is the ip address, or name, of a domain that ownCloud will allow
+  # users to log in to the web interface from. Once the application is
+  # running additional domains can be added either via the web interface or 
+  # 'php occ' tool
+  # https://doc.owncloud.org/server/latest/admin_manual/search.html?q=trusted_domain
+  # On GKE this should be the IP address that you reserved,
+  # e.g. with 'gcloud compute addresses create --region='your_region'  owncloud
+  owc_trusted_ip: 192.168.98.97

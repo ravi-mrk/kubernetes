@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: owncloud
+  labels:
+    app: owncloud
+spec:
+  selector:
+    app: owncloud
+  ports:
+    - protocol: "TCP"
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: 192.168.98.97

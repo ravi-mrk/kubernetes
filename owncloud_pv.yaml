@@ -1,0 +1,55 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: owncloud-config
+  labels:
+    app: owncloud
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/ocdata/config"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: owncloud-data
+  labels:
+    app: owncloud
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/ocdata/data"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: owncloud-apps
+  labels:
+    app: owncloud
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/ocdata/apps"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mariadb-owncloud
+  labels:
+    app: owncloud
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/ocdata"
