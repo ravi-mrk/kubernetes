@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      # unlike a "name" is not included, instead it is automatically
+      # generated based upon the deployment name.
+      labels:
+        app: nginx
+        # track: stable
+      # annotations:
+    spec:
+      volumes:
+      - name: mdata-store
+        persistentVolumeClaim:
+          claimName: mariadb-owncloud-claim
+     containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: mdata-store
+          mountPath: /tmp/ocdata

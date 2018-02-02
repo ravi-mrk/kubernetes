@@ -42,7 +42,7 @@ spec:
         - containerPort: 3306
         volumeMounts:
         - name: mdata-store
-          mountPath: /tmp/ocdata
+          mountPath: /var/lib/mysql
           
       - name: owncloud
         env:
@@ -88,11 +88,11 @@ spec:
 
         volumeMounts:
         - name: config-store
-          mountPath: /tmp/ocdata/config
+          mountPath: /var/www/html/config
         - name: data-store
-          mountPath: /tmp/ocdata/data
+          mountPath: /var/www/html/data
         - name: app-store
-          mountPath: /tmp/ocdata/apps
+          mountPath: /var/www/html/apps
 
         command:
         - bash

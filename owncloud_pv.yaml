@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/ocdata/config"
+    path: "/tmp/owncloud/config"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -24,7 +24,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/ocdata/data"
+    path: "/tmp/owncloud/data"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -38,7 +38,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/ocdata/apps"
+    path: "/tmp/owncloud/apps"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -52,4 +52,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/ocdata"
+    path: "/tmp/var/lib/mysql"
