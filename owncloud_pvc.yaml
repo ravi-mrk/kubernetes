@@ -27,7 +27,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 1Gi
 
 ---
 kind: PersistentVolumeClaim
@@ -51,6 +51,8 @@ metadata:
   name: mariadb-owncloud-claim
   labels:
     app: owncloud
+  annotations: 
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
