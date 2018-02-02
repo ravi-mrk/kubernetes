@@ -9,8 +9,9 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/tmp/owncloud/config"
+    path: "/data/owncloud/config"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -20,11 +21,12 @@ metadata:
     app: owncloud
 spec:
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/tmp/owncloud/data"
+    path: "/data/owncloud/data"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -37,8 +39,9 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/tmp/owncloud/apps"
+    path: "/data/owncloud/apps"
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -51,5 +54,6 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/tmp/var/lib/mysql"
+    path: "/data/owncloud/mariadb"
